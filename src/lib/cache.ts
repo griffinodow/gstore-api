@@ -30,11 +30,15 @@ export class Cache {
 
     const resItems = await square.catalogApi.listCatalog(undefined, 'ITEM')
 
+    const resImages = await square.catalogApi.searchCatalogObjects({ objectTypes: ['IMAGE'], includeDeletedObjects: false })
+
     if (resItems.result.objects) {
       resItems.result.objects.forEach(object => {
         const category = this.catalog.categories.find(entry => entry.id === object.itemData!.categoryId)
         if (category) {
-          const item = new Item(object.id, object!.itemData!.categoryId as string, object!.itemData!.name as string, object!.itemData!.description as string)
+          const url = resImages.result.objects!.find((item) => item.id === object!.itemData!.imageIds![0])!.imageData!.url
+
+          const item = new Item(object.id, object!.itemData!.categoryId as string, object!.itemData!.name as string, object!.itemData!.description as string, url as string)
           object!.itemData!.variations!.forEach(variation => item.variations.push(new ItemVariation(variation.id, item.id, Number(variation!.itemVariationData!.priceMoney!.amount as BigInt))))
           this.catalog.items.push(item)
         }
