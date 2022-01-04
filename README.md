@@ -55,6 +55,7 @@ This project is a REST API for purchasing products on a demo store for my portfo
 * [TypeScript](https://www.typescriptlang.org/)
 * [Node.js](https://nodejs.org/)
 * [Express.js](https://expressjs.com/)
+* [SquareSDK](https://squareup.com/ca/en)
 * [Docker](https://www.docker.com/)
 
 <!-- GETTING STARTED -->
