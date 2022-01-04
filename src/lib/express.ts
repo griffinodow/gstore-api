@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import catalog from '../routes/catalog'
 import order from '../routes/order'
+import payment from '../routes/payment'
 
 export default async () => {
   const app = express()
@@ -12,9 +13,10 @@ export default async () => {
   // Routes
   app.use('/catalog', catalog)
   app.use('/order', order)
+  app.use('/payment', payment)
 
   // Server level errors
-  app.use((error: any, _req: Request, res: Response) => {
+  app.use((error: any, _req: Request, res: Response, _next: NextFunction) => {
     console.error(error.message || 'Unknown server error')
     res.status(error.status || 500).json({
       status: 'error',
