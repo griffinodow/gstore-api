@@ -1,9 +1,9 @@
-import express from './lib/express'
+import { initExpress } from './lib/express'
 import { Cache } from './lib/cache'
 
 ;(async () => {
   try {
-    await express()
+    await initExpress()
     Cache.init()
     console.log('Server initialized')
   } catch (error) {
