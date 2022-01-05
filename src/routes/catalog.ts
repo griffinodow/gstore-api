@@ -3,6 +3,9 @@ import { cache } from '../lib/cache'
 
 const router = express.Router()
 
+/**
+ * Get request route that serves the catalog.
+ */
 router.get('/', async (_req, res, next) => {
   try {
     res.status(200).json({
