@@ -1,13 +1,13 @@
 import express from 'express'
 import { square } from '../lib/square'
-import { Cache } from '../lib/cache'
+import { cache } from '../lib/cache'
 
 const router = express.Router()
 
 router.post('/', async (req, res, next) => {
   try {
     const filter = req.body.lineItems.map((item: { itemId: string; catalogObjectId: string; basePriceMoney: { amount: number; currency: string } }) => {
-      const items = Cache.catalog.items.find(entry => entry.id === item.itemId)
+      const items = cache!.catalog!.items.find(entry => entry.id === item.itemId)
       const result = items!.variations.find(variation => variation.id === item.catalogObjectId)
       if (result) {
         item.basePriceMoney = {

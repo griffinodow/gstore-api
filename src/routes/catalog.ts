@@ -1,5 +1,5 @@
 import express from 'express'
-import { Cache } from '../lib/cache'
+import { cache } from '../lib/cache'
 
 const router = express.Router()
 
@@ -8,7 +8,7 @@ router.get('/', async (_req, res, next) => {
     res.status(200).json({
       status: 'success',
       data: {
-        catalog: Cache.catalog
+        catalog: cache.catalog
       }
     })
   } catch (error) {
