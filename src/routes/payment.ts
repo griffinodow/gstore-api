@@ -3,6 +3,9 @@ import { square } from '../lib/square'
 
 const router = express.Router()
 
+/**
+ * Creates a payment via Square and an existing order.
+ */
 router.post('/', async (req, res, next) => {
   try {
     const orderResponse = await square.ordersApi.retrieveOrder(req.body.orderId)
