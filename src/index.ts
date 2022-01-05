@@ -1,6 +1,9 @@
 import { initExpress } from './lib/express'
 import { initCache } from './lib/cache'
 
+/**
+ * Function that initializes the server.
+ */
 ;(async () => {
   try {
     await initExpress()
