@@ -1,3 +1,6 @@
+/**
+ * A variation of an item that includes a price.
+ */
 export class ItemVariation {
   id: string
   itemId: string
