@@ -4,11 +4,23 @@ import { cache } from '../lib/cache'
 
 const router = express.Router()
 
+/**
+ * Order post route that creates an order.
+ */
 router.post('/', async (req, res, next) => {
   try {
-    const filter = req.body.lineItems.map((item: { itemId: string; catalogObjectId: string; basePriceMoney: { amount: number; currency: string } }) => {
-      const items = cache!.catalog!.items.find(entry => entry.id === item.itemId)
-      const result = items!.variations.find(variation => variation.id === item.catalogObjectId)
+    const filter = req.body.lineItems.map((item: {
+      itemId: string
+      catalogObjectId: string
+      basePriceMoney: {
+        amount: number
+        currency: string
+      }
+    }) => {
+      const items = cache!.catalog!.items.find(
+        entry => entry.id === item.itemId)
+      const result = items!.variations.find(
+        variation => variation.id === item.catalogObjectId)
       if (result) {
         item.basePriceMoney = {
           amount: result.price,
