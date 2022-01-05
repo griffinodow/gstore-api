@@ -1,6 +1,9 @@
 import { Category } from './category'
 import { Item } from './item'
 
+/**
+ * The catalog that holds the Square catalog and related information.
+ */
 export class Catalog {
   locationId: string
   categories: Category[] = []
