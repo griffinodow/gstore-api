@@ -9,7 +9,7 @@
 <div align="center">
   <h3 align="center">G-Store API</h3>
   <p align="center">
-    REST API for G-Store
+    G-Store is an online store that sells cookies for my portfolio
     <br />
     <a href="https://g-store.griffindow.com">View Website</a>
     ·
