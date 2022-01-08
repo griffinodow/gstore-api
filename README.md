@@ -9,46 +9,30 @@
 <div align="center">
   <h3 align="center">G-Store API</h3>
   <p align="center">
-    A REST API for G-Store
-    <br />
-    <a href="https://github.com/griffinodow/gstore-api"><strong>Explore the docs »</strong></a>
-    <br />
+    REST API for G-Store
     <br />
     <a href="https://g-store.griffindow.com">View Website</a>
     ·
     <a href="https://github.com/griffinodow/gstore-api/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/griffinodow/gstore-api/issues">Request Feature</a>
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#environment">Environment</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+![Screenshot](./docs/gstore-screenshot.png)
 
-This project is a REST API for purchasing products on a demo store for my portfolio.
+This is the back-end REST API of an online cookie store for my portfolio. Select a specified quanity of products to insert into a cart for purchasing. Then input test payment details to make a purchase.
+
+### Features
+- Communicate with Stripe CMS API
+- Communicate with Stripe Payments API
+- REST API for serving product catalog
+- REST API for creating orders
+- REST API for paying for orders
+
+### Ambition
+
+The goal of this project was to communicate with an external CMS and payment processing system while using REST API paradigms.
 
 ### Built With
 
@@ -60,38 +44,35 @@ This project is a REST API for purchasing products on a demo store for my portfo
 
 <!-- GETTING STARTED -->
 ## Getting Started
+### View Demo Site
 
-This project is meant to run inside a Docker container for easy deployment. The intended experience is available at [g-store.griffindow.com](https://g-store.griffindow.com/)
+[g-store.griffindow.com](https://g-store.griffindow.com/)
 
-### Prerequisites
-
-Install Docker for your desired platform.
-
-### Environment
-
-For easy configuration the Docker container expects the follow environment variables to be set for configuration. Environment variables can be passed to Docker with the -e flag.
+### Environment Variables
+For easy configuration the app expects the follow environment variable to be set for configuration. Environment variables can be passed to Docker with the -e flag.
 | Entry | Environment Variable |
 | --- | --- |
 | Square Access Token | GS_SQUARE_ACCESS_TOKEN |
 
-### Installation
-
-Deploy the container with the following command.
+### Develop Locally
 
 ```bash
-docker run -p 4000:80 griffinodow/gstore-api
+# Serve with hot reload at localhost:3000
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-This will allow API requests to be sent to: http://localhost:4000/
+### Deploy Container
 
+Deploy the back-end micro-service container with the following command.
 
-<!-- ROADMAP -->
-## Roadmap
-See the [open issues](https://github.com/griffinodow/gstore-api/issues) for a full list of proposed features (and known issues).
+```bash
+docker run -p 4000:4000 -e $GS_SQUARE_ACCESS_TOKEN griffinodow/gstore-api
+```
 
-<!-- LICENSE -->
-## License
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+This will allow the app to be served at: http://localhost:4000
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
