@@ -28,6 +28,6 @@ export const initExpress = async () => {
 
   // Init
   await new Promise<void>((resolve) => {
-    app.listen(4000, () => resolve())
+    app.listen(80, () => resolve())
   })
 }
